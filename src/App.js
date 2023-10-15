@@ -1,9 +1,40 @@
-import './App.css';
+import { 
+  BrowserRouter as Router,
+  Navigate,
+  Routes, 
+  Route 
+} from 'react-router-dom';
+import Admin from './components/Admin/admin';
+import Books from './components/Books/books';
+import { styled } from "styled-components";
+
+const AppContainer = styled.div`
+  margin: 60px auto;
+  width: 400px;
+  background-color: red;
+`;
+
+const Content = styled.div`
+  background-color: white;
+  border-radius: 5px;
+  padding: 28px;
+`;
+
 
 function App() {
   return (
     <>
-      <h1>Welcome to React Router v6</h1>
+      <AppContainer>
+        <Router>
+          <Content>
+            <Routes>
+              <Route path="/" element={<Books />} />
+              <Route path="/admin" element={<Admin />} />
+              <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+          </Content>
+        </Router>
+      </AppContainer>
     </>
   );
 }
