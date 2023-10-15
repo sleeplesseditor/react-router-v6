@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import Admin from './components/Admin/admin';
 import Books from './components/Books/books';
+import Nav from './components/shared/nav';
 import { styled } from "styled-components";
 
 const AppContainer = styled.div`
@@ -27,6 +28,7 @@ function App() {
       <AppContainer>
         <Router>
           <Content>
+            <Nav />
             <Routes>
               <Route path="/" element={<Books />} />
               <Route path="/admin" element={<Admin />} />
