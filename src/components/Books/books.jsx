@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import { styled } from "styled-components";
 
 const BooksContainer = styled.div`
@@ -18,6 +19,7 @@ const Books = () => {
     <>
       <BooksContainer>
         <Logo src="/assets/images/logo.svg" alt="StarBooks Logo" />
+        <Outlet />
       </BooksContainer>
     </>
   );
