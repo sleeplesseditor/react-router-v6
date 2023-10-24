@@ -9,6 +9,7 @@ import Books from './components/Books/books';
 import Nav from './components/shared/nav';
 import { styled } from "styled-components";
 import BooksList from './components/Books/booksList';
+import Book from './components/Books/book';
 
 const AppContainer = styled.div`
   margin: 60px auto;
@@ -32,7 +33,8 @@ function App() {
             <Nav />
             <Routes>
               <Route path="/" element={<Books />}>
-                <Route path="/books" element={<BooksList />} />
+                <Route path="/" element={<BooksList />} />
+                <Route path=":id" element={<Book />} />
               </Route>
               <Route path="/admin" element={<Admin />} />
               <Route path="*" element={<Navigate to="/" />} />

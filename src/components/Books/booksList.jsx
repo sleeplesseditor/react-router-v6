@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import BookCard from './bookCard';
 
 const BooksList = () => {
   const [data, setData] = useState(null);
@@ -14,7 +15,7 @@ const BooksList = () => {
   return data ? (
     <>
       {data.map((book) => (
-        <div key={book.id}>{book.title}</div>
+        <BookCard key={book.id} book={book} />
       ))}
     </>
   ) : (
