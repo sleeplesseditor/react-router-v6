@@ -4,11 +4,12 @@ import {
   Routes, 
   Route 
 } from 'react-router-dom';
+import { useState } from 'react';
 import Admin from './components/Admin/admin';
 import Books from './components/Books/books';
 import Nav from './components/shared/nav';
 import { styled } from "styled-components";
-import BooksList from './components/Books/booksList';
+import ProtectedRoute from './components/shared/protected-route';
 
 const AppContainer = styled.div`
   margin: 60px auto;
@@ -24,6 +25,8 @@ const Content = styled.div`
 
 
 function App() {
+  const [authenticated, setAuthenticated] = useState(true);
+
   return (
     <>
       <AppContainer>
@@ -31,10 +34,13 @@ function App() {
           <Content>
             <Nav />
             <Routes>
-              <Route path="/" element={<Books />}>
-                <Route path="/books" element={<BooksList />} />
-              </Route>
-              <Route path="/admin" element={<Admin />} />
+              <Route path="/*" element={<Books />}/>
+              <Route 
+                path="/admin" 
+                element={
+                  <ProtectedRoute authenticated={authenticated} element={<Admin />} to={"/"} />
+                } 
+              />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </Content>
