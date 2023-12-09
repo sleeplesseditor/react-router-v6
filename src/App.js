@@ -36,9 +36,13 @@ function App() {
             <Routes>
               <Route path="/*" element={<Books />}/>
               <Route 
-                path="/admin" 
+                path="/admin/*" 
                 element={
-                  <ProtectedRoute authenticated={authenticated} element={<Admin />} to={"/"} />
+                  <ProtectedRoute 
+                    authenticated={authenticated} 
+                    element={<Admin />} 
+                    to={"/"} 
+                  />
                 } 
               />
               <Route path="*" element={<Navigate to="/" />} />

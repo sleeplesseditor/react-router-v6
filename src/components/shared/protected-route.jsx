@@ -5,7 +5,7 @@ const ProtectedRoute = ({ authenticated, element, to }) => {
 
     return (
         <Routes>
-            <Route path="/" element={element} />
+            <Route path="/*" element={element} />
         </Routes>
     )
 };
