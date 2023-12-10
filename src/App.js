@@ -10,6 +10,7 @@ import Books from './components/Books/books';
 import Nav from './components/shared/nav';
 import { styled } from "styled-components";
 import ProtectedRoute from './components/shared/protected-route';
+import ScrollTop from './components/shared/ScrollTop';
 
 const AppContainer = styled.div`
   margin: 60px auto;
@@ -25,12 +26,13 @@ const Content = styled.div`
 
 
 function App() {
-  const [authenticated, setAuthenticated] = useState(true);
+  const [authenticated] = useState(true);
 
   return (
     <>
       <AppContainer>
         <Router>
+          <ScrollTop />
           <Content>
             <Nav />
             <Routes>

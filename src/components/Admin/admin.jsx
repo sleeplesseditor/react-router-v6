@@ -30,7 +30,8 @@ const Admin = () => {
       </Container>
       <Routes>
         <Route path="/books" element={<BooksList />} />
-        <Route path="/new" element={<BookEdit />} />
+        <Route path="/new" element={<BookEdit isEdit={false} />} />
+        <Route path=":id" element={<BookEdit isEdit={true} />} />
       </Routes>
     </>
   )
